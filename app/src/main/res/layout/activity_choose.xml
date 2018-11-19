@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+
+    android:background ="@drawable/background_screen"
+    android:padding="@dimen/layout_padding2">
+
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="#CCCCCC"
+        android:track="@drawable/track"
+        android:thumb="@drawable/thumb"
+        android:text="이어주기"
+        android:textOn=""
+        android:textOff=""
+        android:paddingTop="15dp"
+        android:layout_marginTop="120dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        />
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:track="@drawable/track"
+        android:thumb="@drawable/thumb"
+        android:layout_below="@id/switch1"
+        android:textColor="#CCCCCC"
+        android:paddingTop="20dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textOn=""
+        android:textOff=""
+        android:text="충격감지" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:track="@drawable/track"
+        android:thumb="@drawable/thumb"
+        android:layout_below="@id/switch3"
+        android:layout_centerHorizontal="true"
+        android:textColor="#CCCCCC"
+        android:paddingTop="20dp"
+        android:textSize="30dp"
+        android:textOn=""
+        android:textStyle="bold"
+        android:textOff=""
+        android:text="방전감지" />
+
+
+</RelativeLayout>
