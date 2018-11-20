@@ -12,9 +12,12 @@ import com.bmh.trackchild.helper.BluetoothHelper;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -122,8 +125,21 @@ public class ChildDeviceActivity extends AppCompatActivity implements ConfirmDia
         sharedPrefs.savePreferences(R.string.Key_ChildDeviceName, deviceName);
         sharedPrefs.savePreferences(R.string.Key_ChildDeviceAddressMac, getDeviceAddress(deviceName));
         dialog.dismiss();
-        startActivity(new Intent(ChildDeviceActivity.this, TrackActivity.class));
-        finish();
+        /*startActivity(new Intent(ChildDeviceActivity.this, TrackActivity.class));
+        finish();*/
+
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        String phoneNumber = pref.getString("phone", "");
+        String context = "찾아주세요";
+
+        SendSMS(phoneNumber, context);
+
+    }
+    void SendSMS(String number, String msg) {
+        SmsManager sms = SmsManager.getDefault();
+        Log.d("test1", "sms1");
+        sms.sendTextMessage(number, null, msg, null, null);
+        Log.d("test1", "sms2");
     }
 
     @Override

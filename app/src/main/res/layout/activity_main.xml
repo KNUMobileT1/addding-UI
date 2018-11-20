@@ -12,23 +12,10 @@
         android:layout_height="@dimen/buttonHeight"
         android:layout_centerInParent="true"
         android:background="@drawable/round_button"
-        android:text="지키미"
+        android:text="환영합니다"
         android:textColor="#FF6666"
         android:textAllCaps="false"
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnChild"
-        android:layout_width="200dp"
-        android:layout_height="@dimen/buttonHeight"
-        android:layout_below="@id/btnParent"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/layout_padding2"
-        android:background="@drawable/round_button"
-        android:text="보호미"
-        android:textColor="#FF6666"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:textStyle="bold"/>
 </RelativeLayout>

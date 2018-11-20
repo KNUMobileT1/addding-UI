@@ -28,7 +28,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AppPermissionInterFace, ConfirmDialogInterface {
 
-    Button btnParent, btnChild;
+    Button btnParent;//, btnChild;
     SharedPrefs sharedPrefs;
     AppPermission appPermission;
     Intent intent;
@@ -80,10 +80,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initComponent() {
         btnParent = findViewById(R.id.btnParent);
-        btnChild = findViewById(R.id.btnChild);
+       // btnChild = findViewById(R.id.btnChild);
 
         btnParent.setOnClickListener(this);
-        btnChild.setOnClickListener(this);
+       // btnChild.setOnClickListener(this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -94,9 +94,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.btnParent:
                     intent.putExtra(StaticValues.USER_TYPE, StaticValues.USER_PARENT);
                     break;
-                case R.id.btnChild:
+             /*   case R.id.btnChild:
                     intent.putExtra(StaticValues.USER_TYPE, StaticValues.USER_CHILD);
-                    break;
+                    break;*/
             }
 
         if (appPermission.hasPermissions(PERMISSIONS)) {

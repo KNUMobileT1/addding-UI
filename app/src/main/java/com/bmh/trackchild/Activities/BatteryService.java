@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.BatteryManager;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -71,11 +72,14 @@ public class BatteryService extends Service {
 
         mStatus = str;
 
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        String phoneNumber = pref.getString("phone", "");
+
         if (status == BatteryManager.BATTERY_STATUS_DISCHARGING) {
             if (ratio  != preRatio){
                 preRatio = ratio;
                 if (preRatio < 15){
-                    SendSMS("01041595674","배터리 부족합니다");
+                    SendSMS(phoneNumber,"배터리 부족합니다");
                     Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
                 }
             }

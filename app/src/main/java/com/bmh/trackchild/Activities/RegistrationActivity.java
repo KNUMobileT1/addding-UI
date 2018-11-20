@@ -15,6 +15,7 @@ import com.bmh.trackchild.UI.ConfirmDialogInterface;
 import android.annotation.SuppressLint;
 
 import android.app.DialogFragment;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -197,6 +198,16 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
         //sharedPrefs.savePreferences(R.string.Key_ChildName, edtUserName.getText().toString());
         sharedPrefs.savePreferences(R.string.Key_ChildPhone, edtPhone.getText().toString());
         sharedPrefs.savePreferences(R.string.Key_UserType, StaticValues.USER_IS_PARENT);
+
+
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("phone", edtPhone.getText().toString());
+        editor.commit();
+
+
+
+
     }
 
     private void saveChildData() {
@@ -206,6 +217,9 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
 //        sharedPrefs.savePreferences(R.string.Key_ParentName, edtUserName.getText().toString());
         sharedPrefs.savePreferences(R.string.Key_ParentPhone, edtPhone.getText().toString());
         sharedPrefs.savePreferences(R.string.Key_UserType, StaticValues.USER_IS_CHILD);
+
+
+
     }
 
     @Override

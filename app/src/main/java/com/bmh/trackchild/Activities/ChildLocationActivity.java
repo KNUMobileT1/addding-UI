@@ -61,23 +61,10 @@ public class ChildLocationActivity extends FragmentActivity  {
             @Override
             public void onClick(View v) {
 
-                sendSMS(sharedPrefs.getPreferences(R.string.Key_ChildPhone,""), "gps");
+                sendSMS(sharedPrefs.getPreferences(R.string.Key_ChildPhone,""), "찾아주세요");
             }
         });
 
-        try {
-            initilizeMap();
-            initMapComponents();
-            if (latLong != null) {
-                googleMap.addMarker(new MarkerOptions().position(latLong).title("Child Location"));
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(latLong).zoom(15).build();
-                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
     }
 

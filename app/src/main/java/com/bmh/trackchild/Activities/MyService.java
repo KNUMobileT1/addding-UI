@@ -2,6 +2,7 @@ package com.bmh.trackchild.Activities;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.IBinder;
 import android.telephony.SmsManager;
@@ -39,16 +40,12 @@ public class MyService extends Service {
 
             @Override
             public void onShake(float force) {
-                String phoneNumber = "01041595674";
+                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                String phoneNumber = pref.getString("phone", "");
                 String context = "살려주세요";
-                /*
-                Toast.makeText(getApplicationContext(),"shake",Toast.LENGTH_SHORT).show();
-                Log.d("test","shake");
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("sms:"
-                        + phoneNumber)));*/
-                Log.d("test1", "shake1");
+
                 SendSMS(phoneNumber, context);
-                Log.d("test1", "shake2");
+
 
             }
 
